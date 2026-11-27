@@ -1,0 +1,285 @@
+{
+  "experiments": [
+    {
+      "name": "Baseline Model A (Core 6)",
+      "experiment": "Baseline",
+      "p_features": 11,
+      "cv_5fold_r2": 0.04479419492673649,
+      "cv_5fold_std": 0.0031301519613686738,
+      "train_r2": 0.04546589243444343,
+      "test_r2": 0.04544830578614589,
+      "test_adj_r2": 0.04492298716315457,
+      "test_mae": 1934.0991832847842,
+      "test_rmse": 3064.788789930816,
+      "skewness": 4.069909902306868,
+      "kurtosis": 34.88701466776919
+    },
+    {
+      "name": "Baseline Model B (Clinical 14)",
+      "experiment": "Baseline",
+      "p_features": 21,
+      "cv_5fold_r2": 0.16341828050775617,
+      "cv_5fold_std": 0.004703325417122149,
+      "train_r2": 0.16441403553327139,
+      "test_r2": 0.16896519368038232,
+      "test_adj_r2": 0.16809164623155304,
+      "test_mae": 1778.6194694647822,
+      "test_rmse": 2859.63386118833,
+      "skewness": 3.969000687562564,
+      "kurtosis": 36.788288515546064
+    },
+    {
+      "name": "Exp A1: Individual Conditions + Biomarkers",
+      "experiment": "Exp A: Expanded Clinical",
+      "p_features": 34,
+      "cv_5fold_r2": 0.17221615907763918,
+      "cv_5fold_std": 0.004379683618383421,
+      "train_r2": 0.17371468919315802,
+      "test_r2": 0.17938232065710502,
+      "test_adj_r2": 0.17798482498479562,
+      "test_mae": 1769.2104725873432,
+      "test_rmse": 2841.6544027552795,
+      "skewness": 3.93553685442723,
+      "kurtosis": 36.15698592535126
+    },
+    {
+      "name": "Exp A2: All Valid Pre-Policy Features (28 vars)",
+      "experiment": "Exp A: Expanded Clinical",
+      "p_features": 55,
+      "cv_5fold_r2": 0.171852457338716,
+      "cv_5fold_std": 0.0044275350378922005,
+      "train_r2": 0.17387632410715004,
+      "test_r2": 0.17938643657711806,
+      "test_adj_r2": 0.1771234128111605,
+      "test_mae": 1769.4401959192596,
+      "test_rmse": 2841.647276393524,
+      "skewness": 3.9329653222352596,
+      "kurtosis": 36.13712669732452
+    },
+    {
+      "name": "Exp B: Clinical Interactions (Age\u00d7BMI, Age\u00d7Smoker, etc.)",
+      "experiment": "Exp B: Interactions",
+      "p_features": 41,
+      "cv_5fold_r2": 0.17264836994692218,
+      "cv_5fold_std": 0.004729917659431256,
+      "train_r2": 0.17439977258979855,
+      "test_r2": 0.1801169733160175,
+      "test_adj_r2": 0.17843267608713476,
+      "test_mae": 1768.3235907824828,
+      "test_rmse": 2840.382131599909,
+      "skewness": 3.928694174628027,
+      "kurtosis": 36.01939037331861
+    },
+    {
+      "name": "Exp C: Degree-2 Polynomial OLS (Scaled)",
+      "experiment": "Exp C: Polynomial OLS",
+      "p_features": 70,
+      "cv_5fold_r2": 0.17059448054120527,
+      "cv_5fold_std": 0.004215074555326408,
+      "train_r2": 0.17426060140649324,
+      "test_r2": 0.17874524802599379,
+      "test_adj_r2": 0.17586061595021574,
+      "test_mae": 1769.4121815101464,
+      "test_rmse": 2842.757223881493,
+      "skewness": 3.935776091048418,
+      "kurtosis": 36.16453406153671
+    },
+    {
+      "name": "Exp D1: Log Target OLS (Direct Inversion)",
+      "experiment": "Exp D: Target Transform",
+      "p_features": 34,
+      "cv_5fold_r2": null,
+      "cv_5fold_std": null,
+      "train_r2": 0.10397292744410558,
+      "test_r2": 0.11323946997646805,
+      "test_adj_r2": 0.11172933433806087,
+      "test_mae": 1665.4928105850272,
+      "test_rmse": 2953.955858001134,
+      "skewness": 3.8970536330075816,
+      "kurtosis": 35.724200513022474,
+      "log_space_r2": 0.21140761947081377
+    },
+    {
+      "name": "Exp D2: Log Target OLS (Duan Smearing Factor)",
+      "experiment": "Exp D: Target Transform",
+      "p_features": 34,
+      "cv_5fold_r2": null,
+      "cv_5fold_std": null,
+      "train_r2": 0.14789615917159127,
+      "test_r2": 0.16244126752125465,
+      "test_adj_r2": 0.16101492157062713,
+      "test_mae": 1781.0737101000707,
+      "test_rmse": 2870.8365020693404,
+      "skewness": 3.3701670079376007,
+      "kurtosis": 32.733556423675736,
+      "log_space_r2": 0.21140761947081377,
+      "smearing_factor": 1.3287257741749179
+    }
+  ],
+  "vif_diagnostics": [
+    {
+      "feature": "age",
+      "vif": 32.93
+    },
+    {
+      "feature": "bmi",
+      "vif": 10.22
+    },
+    {
+      "feature": "dependents",
+      "vif": 1.01
+    },
+    {
+      "feature": "income",
+      "vif": 1.0
+    },
+    {
+      "feature": "systolic_bp",
+      "vif": 2.41
+    },
+    {
+      "feature": "diastolic_bp",
+      "vif": 1.61
+    },
+    {
+      "feature": "ldl",
+      "vif": 1.02
+    },
+    {
+      "feature": "hba1c",
+      "vif": 2.54
+    },
+    {
+      "feature": "visits_last_year",
+      "vif": 1.3
+    },
+    {
+      "feature": "hospitalizations_last_3yrs",
+      "vif": 13.88
+    },
+    {
+      "feature": "days_hospitalized_last_3yrs",
+      "vif": 4.53
+    },
+    {
+      "feature": "medication_count",
+      "vif": 1.19
+    },
+    {
+      "feature": "deductible",
+      "vif": 1.0
+    },
+    {
+      "feature": "hypertension",
+      "vif": 4.68
+    },
+    {
+      "feature": "diabetes",
+      "vif": 3.85
+    },
+    {
+      "feature": "asthma",
+      "vif": 1.91
+    },
+    {
+      "feature": "copd",
+      "vif": 1.59
+    },
+    {
+      "feature": "cardiovascular_disease",
+      "vif": 1.78
+    },
+    {
+      "feature": "cancer_history",
+      "vif": 1.39
+    },
+    {
+      "feature": "kidney_disease",
+      "vif": 1.26
+    },
+    {
+      "feature": "liver_disease",
+      "vif": 1.23
+    },
+    {
+      "feature": "arthritis",
+      "vif": 2.66
+    },
+    {
+      "feature": "mental_health",
+      "vif": 2.91
+    },
+    {
+      "feature": "inter_age_bmi",
+      "vif": 39.62
+    },
+    {
+      "feature": "inter_age_current_smoker",
+      "vif": 9.83
+    },
+    {
+      "feature": "inter_age_former_smoker",
+      "vif": 10.7
+    },
+    {
+      "feature": "inter_bmi_current_smoker",
+      "vif": 31.92
+    },
+    {
+      "feature": "inter_chronic_age",
+      "vif": 12.48
+    },
+    {
+      "feature": "inter_hosp_chronic",
+      "vif": 2.2
+    },
+    {
+      "feature": "inter_hosp_age",
+      "vif": 10.66
+    },
+    {
+      "feature": "sex_Male",
+      "vif": 1.02
+    },
+    {
+      "feature": "sex_Other",
+      "vif": 1.02
+    },
+    {
+      "feature": "smoker_Former",
+      "vif": 10.48
+    },
+    {
+      "feature": "smoker_Current",
+      "vif": 40.07
+    },
+    {
+      "feature": "region_East",
+      "vif": 2.1
+    },
+    {
+      "feature": "region_North",
+      "vif": 2.16
+    },
+    {
+      "feature": "region_South",
+      "vif": 2.33
+    },
+    {
+      "feature": "region_West",
+      "vif": 2.02
+    },
+    {
+      "feature": "plan_type_PPO",
+      "vif": 1.32
+    },
+    {
+      "feature": "plan_type_EPO",
+      "vif": 1.23
+    },
+    {
+      "feature": "plan_type_POS",
+      "vif": 1.22
+    }
+  ]
+}

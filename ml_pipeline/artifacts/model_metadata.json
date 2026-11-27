@@ -1,0 +1,431 @@
+{
+  "project": "Medical Insurance Cost Prediction using Linear Regression",
+  "dataset_profile": {
+    "total_rows": 100000,
+    "total_columns": 55,
+    "target_variable": "annual_medical_cost",
+    "split": {
+      "train_size": 80000,
+      "test_size": 20000,
+      "random_state": 42
+    }
+  },
+  "reference_categories": {
+    "sex": "Female",
+    "smoker": "Never",
+    "region": "Central",
+    "plan_type": "HMO"
+  },
+  "model_a": {
+    "name": "Model A (Core Demographics & Lifestyle)",
+    "description": "Predicts annual medical charges using foundational demographic features only.",
+    "features": [
+      "age",
+      "bmi",
+      "dependents",
+      "sex",
+      "smoker",
+      "region"
+    ],
+    "intercept": 652.65,
+    "coefficients": [
+      {
+        "feature": "age",
+        "coefficient": 25.98,
+        "interpretation": "Holding other features constant, 1 unit increase in age is associated with a $25.98 difference in estimated charges."
+      },
+      {
+        "feature": "bmi",
+        "coefficient": 28.33,
+        "interpretation": "Holding other features constant, 1 unit increase in bmi is associated with a $28.33 difference in estimated charges."
+      },
+      {
+        "feature": "dependents",
+        "coefficient": 6.97,
+        "interpretation": "Holding other features constant, 1 unit increase in dependents is associated with a $6.97 difference in estimated charges."
+      },
+      {
+        "feature": "sex_Male",
+        "coefficient": 38.3,
+        "interpretation": "Holding other features constant, 1 unit increase in sex_Male is associated with a $38.30 difference in estimated charges."
+      },
+      {
+        "feature": "sex_Other",
+        "coefficient": 56.5,
+        "interpretation": "Holding other features constant, 1 unit increase in sex_Other is associated with a $56.50 difference in estimated charges."
+      },
+      {
+        "feature": "smoker_Former",
+        "coefficient": 436.66,
+        "interpretation": "Holding other features constant, 1 unit increase in smoker_Former is associated with a $436.66 difference in estimated charges."
+      },
+      {
+        "feature": "smoker_Current",
+        "coefficient": 1548.91,
+        "interpretation": "Holding other features constant, 1 unit increase in smoker_Current is associated with a $1548.91 difference in estimated charges."
+      },
+      {
+        "feature": "region_East",
+        "coefficient": 19.26,
+        "interpretation": "Holding other features constant, 1 unit increase in region_East is associated with a $19.26 difference in estimated charges."
+      },
+      {
+        "feature": "region_North",
+        "coefficient": 63.19,
+        "interpretation": "Holding other features constant, 1 unit increase in region_North is associated with a $63.19 difference in estimated charges."
+      },
+      {
+        "feature": "region_South",
+        "coefficient": 108.07,
+        "interpretation": "Holding other features constant, 1 unit increase in region_South is associated with a $108.07 difference in estimated charges."
+      },
+      {
+        "feature": "region_West",
+        "coefficient": 58.83,
+        "interpretation": "Holding other features constant, 1 unit increase in region_West is associated with a $58.83 difference in estimated charges."
+      }
+    ],
+    "metrics_train": {
+      "mae": 1929.08,
+      "mse": 9321994.57,
+      "rmse": 3053.19,
+      "r2": 0.045466,
+      "adjusted_r2": 0.045335
+    },
+    "metrics_test": {
+      "mae": 1934.1,
+      "mse": 9392930.33,
+      "rmse": 3064.79,
+      "r2": 0.045448,
+      "adjusted_r2": 0.044923
+    },
+    "vif": [
+      {
+        "feature": "age",
+        "vif": 1.0
+      },
+      {
+        "feature": "bmi",
+        "vif": 1.0
+      },
+      {
+        "feature": "dependents",
+        "vif": 1.0
+      },
+      {
+        "feature": "sex_Male",
+        "vif": 1.02
+      },
+      {
+        "feature": "sex_Other",
+        "vif": 1.02
+      },
+      {
+        "feature": "smoker_Former",
+        "vif": 1.03
+      },
+      {
+        "feature": "smoker_Current",
+        "vif": 1.03
+      },
+      {
+        "feature": "region_East",
+        "vif": 2.13
+      },
+      {
+        "feature": "region_North",
+        "vif": 2.2
+      },
+      {
+        "feature": "region_South",
+        "vif": 2.39
+      },
+      {
+        "feature": "region_West",
+        "vif": 2.04
+      }
+    ],
+    "residual_summary": {
+      "mean": 28.52,
+      "std": 3064.66,
+      "skewness": 4.07,
+      "kurtosis": 34.887
+    }
+  },
+  "model_b": {
+    "name": "Model B (Comprehensive Clinical & Policy Intake Profile)",
+    "description": "Predicts annual charges using core demographics plus pre-policy biometrics, chronic history, and coverage parameters (leak-free).",
+    "features": [
+      "age",
+      "bmi",
+      "dependents",
+      "income",
+      "systolic_bp",
+      "hba1c",
+      "visits_last_year",
+      "hospitalizations_last_3yrs",
+      "chronic_count",
+      "deductible",
+      "sex",
+      "smoker",
+      "region",
+      "plan_type"
+    ],
+    "intercept": 48.23,
+    "coefficients": [
+      {
+        "feature": "age",
+        "coefficient": 18.58,
+        "interpretation": "Holding other features constant, 1 unit increase in age is associated with a $18.58 difference in estimated charges."
+      },
+      {
+        "feature": "bmi",
+        "coefficient": 28.39,
+        "interpretation": "Holding other features constant, 1 unit increase in bmi is associated with a $28.39 difference in estimated charges."
+      },
+      {
+        "feature": "dependents",
+        "coefficient": 1.65,
+        "interpretation": "Holding other features constant, 1 unit increase in dependents is associated with a $1.65 difference in estimated charges."
+      },
+      {
+        "feature": "income",
+        "coefficient": -0.0,
+        "interpretation": "Holding other features constant, 1 unit increase in income is associated with a $-0.00 difference in estimated charges."
+      },
+      {
+        "feature": "systolic_bp",
+        "coefficient": -0.3,
+        "interpretation": "Holding other features constant, 1 unit increase in systolic_bp is associated with a $-0.30 difference in estimated charges."
+      },
+      {
+        "feature": "hba1c",
+        "coefficient": -15.24,
+        "interpretation": "Holding other features constant, 1 unit increase in hba1c is associated with a $-15.24 difference in estimated charges."
+      },
+      {
+        "feature": "visits_last_year",
+        "coefficient": 137.2,
+        "interpretation": "Holding other features constant, 1 unit increase in visits_last_year is associated with a $137.20 difference in estimated charges."
+      },
+      {
+        "feature": "hospitalizations_last_3yrs",
+        "coefficient": 1928.25,
+        "interpretation": "Holding other features constant, 1 unit increase in hospitalizations_last_3yrs is associated with a $1928.25 difference in estimated charges."
+      },
+      {
+        "feature": "chronic_count",
+        "coefficient": 926.66,
+        "interpretation": "Holding other features constant, 1 unit increase in chronic_count is associated with a $926.66 difference in estimated charges."
+      },
+      {
+        "feature": "deductible",
+        "coefficient": -0.0,
+        "interpretation": "Holding other features constant, 1 unit increase in deductible is associated with a $-0.00 difference in estimated charges."
+      },
+      {
+        "feature": "sex_Male",
+        "coefficient": 31.86,
+        "interpretation": "Holding other features constant, 1 unit increase in sex_Male is associated with a $31.86 difference in estimated charges."
+      },
+      {
+        "feature": "sex_Other",
+        "coefficient": 80.53,
+        "interpretation": "Holding other features constant, 1 unit increase in sex_Other is associated with a $80.53 difference in estimated charges."
+      },
+      {
+        "feature": "smoker_Former",
+        "coefficient": 430.3,
+        "interpretation": "Holding other features constant, 1 unit increase in smoker_Former is associated with a $430.30 difference in estimated charges."
+      },
+      {
+        "feature": "smoker_Current",
+        "coefficient": 1540.4,
+        "interpretation": "Holding other features constant, 1 unit increase in smoker_Current is associated with a $1540.40 difference in estimated charges."
+      },
+      {
+        "feature": "region_East",
+        "coefficient": 33.98,
+        "interpretation": "Holding other features constant, 1 unit increase in region_East is associated with a $33.98 difference in estimated charges."
+      },
+      {
+        "feature": "region_North",
+        "coefficient": 67.57,
+        "interpretation": "Holding other features constant, 1 unit increase in region_North is associated with a $67.57 difference in estimated charges."
+      },
+      {
+        "feature": "region_South",
+        "coefficient": 98.99,
+        "interpretation": "Holding other features constant, 1 unit increase in region_South is associated with a $98.99 difference in estimated charges."
+      },
+      {
+        "feature": "region_West",
+        "coefficient": 68.59,
+        "interpretation": "Holding other features constant, 1 unit increase in region_West is associated with a $68.59 difference in estimated charges."
+      },
+      {
+        "feature": "plan_type_PPO",
+        "coefficient": -12.99,
+        "interpretation": "Holding other features constant, 1 unit increase in plan_type_PPO is associated with a $-12.99 difference in estimated charges."
+      },
+      {
+        "feature": "plan_type_EPO",
+        "coefficient": -45.51,
+        "interpretation": "Holding other features constant, 1 unit increase in plan_type_EPO is associated with a $-45.51 difference in estimated charges."
+      },
+      {
+        "feature": "plan_type_POS",
+        "coefficient": -16.33,
+        "interpretation": "Holding other features constant, 1 unit increase in plan_type_POS is associated with a $-16.33 difference in estimated charges."
+      }
+    ],
+    "metrics_train": {
+      "mae": 1771.85,
+      "mse": 8160345.2,
+      "rmse": 2856.63,
+      "r2": 0.164414,
+      "adjusted_r2": 0.164195
+    },
+    "metrics_test": {
+      "mae": 1778.62,
+      "mse": 8177505.82,
+      "rmse": 2859.63,
+      "r2": 0.168965,
+      "adjusted_r2": 0.168092
+    },
+    "vif": [
+      {
+        "feature": "age",
+        "vif": 1.46
+      },
+      {
+        "feature": "bmi",
+        "vif": 1.0
+      },
+      {
+        "feature": "dependents",
+        "vif": 1.0
+      },
+      {
+        "feature": "income",
+        "vif": 1.0
+      },
+      {
+        "feature": "systolic_bp",
+        "vif": 1.62
+      },
+      {
+        "feature": "hba1c",
+        "vif": 1.1
+      },
+      {
+        "feature": "visits_last_year",
+        "vif": 1.28
+      },
+      {
+        "feature": "hospitalizations_last_3yrs",
+        "vif": 1.0
+      },
+      {
+        "feature": "chronic_count",
+        "vif": 1.52
+      },
+      {
+        "feature": "deductible",
+        "vif": 1.0
+      },
+      {
+        "feature": "sex_Male",
+        "vif": 1.02
+      },
+      {
+        "feature": "sex_Other",
+        "vif": 1.02
+      },
+      {
+        "feature": "smoker_Former",
+        "vif": 1.03
+      },
+      {
+        "feature": "smoker_Current",
+        "vif": 1.03
+      },
+      {
+        "feature": "region_East",
+        "vif": 2.13
+      },
+      {
+        "feature": "region_North",
+        "vif": 2.2
+      },
+      {
+        "feature": "region_South",
+        "vif": 2.39
+      },
+      {
+        "feature": "region_West",
+        "vif": 2.04
+      },
+      {
+        "feature": "plan_type_PPO",
+        "vif": 1.31
+      },
+      {
+        "feature": "plan_type_EPO",
+        "vif": 1.22
+      },
+      {
+        "feature": "plan_type_POS",
+        "vif": 1.22
+      }
+    ],
+    "residual_summary": {
+      "mean": 21.46,
+      "std": 2859.55,
+      "skewness": 3.969,
+      "kurtosis": 36.788
+    }
+  },
+  "excluded_leakage_features": [
+    {
+      "column": "annual_premium",
+      "reason": "Target-derived; mathematical proxy for medical cost."
+    },
+    {
+      "column": "monthly_premium",
+      "reason": "Direct division of annual premium; post-cost mathematical derivative."
+    },
+    {
+      "column": "claims_count",
+      "reason": "Post-policy outcome; counts claims filed during coverage year."
+    },
+    {
+      "column": "avg_claim_amount",
+      "reason": "Post-policy outcome; claims financial metric."
+    },
+    {
+      "column": "total_claims_paid",
+      "reason": "Post-policy outcome; directly sums insurer payouts."
+    },
+    {
+      "column": "risk_score",
+      "reason": "Composite score generated by insurer with knowledge of outcome/claims."
+    },
+    {
+      "column": "is_high_risk",
+      "reason": "Binary flag derived directly from risk_score."
+    },
+    {
+      "column": "had_major_procedure",
+      "reason": "Event occurring during the covered policy year."
+    },
+    {
+      "column": "proc_*_count",
+      "reason": "Procedure counts executed during the covered year."
+    },
+    {
+      "column": "alcohol_freq",
+      "reason": "Contains 30,083 missing values (30.1% null rate)."
+    }
+  ]
+}
